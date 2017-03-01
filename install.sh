@@ -149,8 +149,7 @@ install(){
             git pull origin master &&
             yes | pip install -r requirements.txt &&
     
-            mkdir dockit/migrations && touch dockit/migrations/__init__.py &&
-            python manage.py makemigrations && python manage.py migrate &&
+            python manage.py migrate &&
             python manage.py createsuperuser &&
     
             if [ "$dist_version" = "xenial" ]
@@ -210,8 +209,7 @@ install(){
             git pull origin master &&
             yes | pip install -r requirements.txt &&
     
-            mkdir dockit/migrations && touch dockit/migrations/__init__.py &&
-            python manage.py makemigrations && python manage.py migrate &&
+            python manage.py migrate &&
             python manage.py createsuperuser &&
     
             if [ "$dist_version" = "jessie" ]
@@ -285,8 +283,7 @@ install(){
 
             yes | pip install -r requirements.txt &&
 
-            mkdir dockit/migrations && touch dockit/migrations/__init__.py &&
-            python manage.py makemigrations && python manage.py migrate &&
+            python manage.py migrate &&
             python manage.py createsuperuser &&
             
             if [ "$dist_version" = "7" ]
