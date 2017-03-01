@@ -1,6 +1,4 @@
-from os.path import join, dirname
-from django.conf.urls import url, patterns
-from django.views.static import serve as staticserve
+from django.conf.urls import url
 from .views import index, logout_user
 from .views import host_stats
 from .views import docker_images, search_images, pull_image, pull_image_progress, launch_image, remove_image
@@ -48,8 +46,3 @@ urlpatterns = [
     url(r'^settings/ip/(?P<pk>\d+)/edit/$', edit_ip, name='edit-ip'),
     url(r'^settings/ip/(?P<pk>\d+)/delete/$', delete_ip, name='delete-ip'),
 ]
-
-urlpatterns += patterns('',
-        (r'^static/(?P<path>.*)$', staticserve,
-            {'document_root': join(dirname(__file__), 'static')} ),
-        )

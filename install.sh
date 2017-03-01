@@ -183,6 +183,7 @@ install(){
             printf "Enter Host IP Address: " &&
             read ip_addr &&
             sed -i "s/\(HOST_IP_ADDR\s=\s\).*/\1'$ip_addr'/g" $project_dir/docker_box/docker_box/settings.py &&
+            sed -i "s/\(ALLOWED_HOSTS\s=\s\).*/\1['$ip_addr']/g" $project_dir/docker_box/docker_box/settings.py &&
 
             printf "Enter a port for docker_box: " &&
             read port &&
